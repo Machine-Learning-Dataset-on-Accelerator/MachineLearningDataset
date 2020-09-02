@@ -19,13 +19,11 @@ from epics import ca
 
 def datetime2utc(datestr,dtformat='%Y/%m/%d %H:%M:%S'):
     timestamp = time.mktime(datetime.datetime.strptime(datestr, dtformat).timetuple())
-    # print('datestr test:\t', datestr)  # 调试用
     return timestamp
 
 def datetime2utc1(datestr,dtformat='%Y/%m/%d %H:%M:%S'):
     datestr = datestr[-6:]
     timestamp = time.mktime(datetime.datetime.strptime(datestr, dtformat).timetuple())
-    # print('datestr test:\t', datestr)  # 调试用
     return timestamp
 
 def connectChanArch(ipaddr):
