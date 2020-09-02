@@ -21,11 +21,6 @@ def datetime2utc(datestr,dtformat='%Y/%m/%d %H:%M:%S'):
     timestamp = time.mktime(datetime.datetime.strptime(datestr, dtformat).timetuple())
     return timestamp
 
-def datetime2utc1(datestr,dtformat='%Y/%m/%d %H:%M:%S'):
-    datestr = datestr[-6:]
-    timestamp = time.mktime(datetime.datetime.strptime(datestr, dtformat).timetuple())
-    return timestamp
-
 def connectChanArch(ipaddr):
     sp = '%s%s%s' % ('http://', ipaddr, '/cgi-bin/archiver/ArchiveDataServer.cgi')
     server = xmlrpc.client.ServerProxy(sp)
@@ -51,7 +46,7 @@ def getKeyWithTime(server, engine,pvnames,start,end):
         flag = 0
         for key, value in keypvlist.items():
             if pv in value:
-                enginestart=datetime2utc1(key.split(':')[1].split('-')[0],'%y%m%d')
+                enginestart=datetime2utc(key.split(':')[1].split('-')[0],'%y%m%d')
                 if key.split(':')[1].split('-')[1]=='now':
                     engineend=int(time.time())
                 else:
