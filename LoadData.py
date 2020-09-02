@@ -4,8 +4,6 @@ filename:       LoadData_New.py
 Description:    Load BPECII data from Archiver Channel
 Author:         Yusi Qiao, Dengjie Xiao
 IDE:            PyCharm
-Change:         2019/4/2 0002  14:55    DengjieXiao     Update
-                2020/9/2                DengjieXiao     Debug for new engine
 
 """
 import time
